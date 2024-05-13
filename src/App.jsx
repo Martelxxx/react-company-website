@@ -1,38 +1,131 @@
 import { useState } from 'react'
 import './App.css'
-import NavBar from '../components/NavBar/NavBar'
-import CompanyHistory from '../components/CompanyHistory/CompanyHistory'
-import PastWork from '../components/PastWork/pastWork'
-import Staff from '../components/Staff/staff'
-import Contact from '../components/Contact/contact'
-import Links from '../components/Links/links'
-import Home from '../components/Home/home'
+import NavBar from './components/NavBar/NavBar'
+import CompanyHistory from './components/CompanyHistory/CompanyHistory'
+import PastWork from './components/PastWork/pastWork'
+import Staff from './components/Staff/Staff'
+import Contact from './components/Contact/contact'
+import Links from './components/Links/Links'
+import Home from './components/Home/home'
 
 
 function App() {
-  const [page, setPage] = useState("home")
 
+  const [page, setPage] = useState("home")
 
   const handleClick = (page1) => {
     setPage(page1)
   }
 
-  const history = "lorem ipsum"
-  const work = "lorem ipsum2"
-  const staffing = "lorem ipsum3"
+const history = "lorem ipsum"
+const work = "lorem ipsum2"
+const employees = [
+  {
+      name: 'Elena Torres',
+      position: 'CEO',
+      description: 'Visionary leader with a decade of experience in aerospace innovation and business strategy.'
+  },
+  {
+      name: 'Michael Chen',
+      position: 'COO',
+      description: 'Operational wizard with a strong background in scaling tech companies and streamlining complex processes.'
+  },
+  {
+      name: 'Samantha Lee',
+      position: 'Chief Technology Officer',
+      description: 'Expert in electric propulsion technology, spearheading research and development initiatives.'
+  },
+  {
+      name: 'Raj Patel',
+      position: 'Chief Financial Officer',
+      description: 'Financial strategist with extensive experience in capital management and economic forecasting in tech industries.'
+  },
+  {
+      name: 'Isabella Garcia',
+      position: 'VP of Engineering',
+      description: 'Leads the engineering team with a focus on innovation, quality, and efficiency in jet engine production.'
+  },
+  {
+      name: 'David Kim',
+      position: 'VP of Sales',
+      description: 'Dynamic sales leader with a strong track record in global market expansion and strategic partnerships.'
+  },
+  {
+      name: 'Linda Smith',
+      position: 'VP of Marketing',
+      description: 'Creative marketing guru, skilled in brand building and digital marketing strategies for high-tech products.'
+  },
+  {
+      name: 'Aaron Zhou',
+      position: 'Lead Software Engineer',
+      description: 'Specializes in embedded systems and software for aerospace applications, focusing on safety and reliability.'
+  },
+  {
+      name: 'Sophia Johnson',
+      position: 'Human Resources Director',
+      description: 'Human capital expert, dedicated to fostering an inclusive and high-performance workplace culture.'
+  },
+  {
+      name: 'James Wilson',
+      position: 'Supply Chain Manager',
+      description: 'Efficiently manages supply chain logistics to support seamless production and distribution.'
+  },
+  {
+      name: 'Emily Turner',
+      position: 'Project Manager',
+      description: 'Orchestrates complex projects from inception to delivery, ensuring timely completion within budget.'
+  },
+  {
+      name: 'Benjamin Martinez',
+      position: 'Quality Assurance Manager',
+      description: 'Guarantees the highest quality standards for all IonX products through rigorous testing and evaluation.'
+  },
+  {
+      name: 'Olivia Sanchez',
+      position: 'Customer Support Manager',
+      description: 'Ensures exceptional customer service, supporting clients with expertise and care.'
+  },
+  {
+      name: 'Ethan Brown',
+      position: 'Data Analyst',
+      description: 'Analyzes performance metrics and data to drive strategic decisions and improve product outcomes.'
+  },
+  {
+      name: 'Grace Kim',
+      position: 'R&D Engineer',
+      description: 'Innovates new materials and techniques for electric engine performance and sustainability.'
+  }
+]
+
+
   const contacts = "lorem ipsum4"
-  const linked = {title: "IonX, Inc. Partners", content: (
-    <div>
-      <h2>Our Partners</h2>
-      <p>IonX, Inc. is proud to partner with some of the leading companies in the transportation and aerospace industries. Our partners are an essential part of our success, and we are committed to working together to deliver the highest quality products and services to our clients. Contact us today to learn more about our partners and how we can help you succeed.</p>
-      <h2>Our Partnerships</h2>
-      <p>At IonX, Inc., we are dedicated to building strong partnerships with companies that share our commitment to excellence. Our partners are an essential part of our success, and we are committed to working together to deliver the highest quality products and services to our clients. Contact us today to learn more about our partners and how we can help you succeed.</p>
-      <h2>Our Commitment</h2>
-      <p>At IonX, Inc., we are committed to delivering the highest quality products and services to our clients. Our partners are an essential part of our success, and we are dedicated to working together to deliver innovative solutions that meet the unique needs of our clients. Contact us today to learn more about our partners and how we can help you succeed.</p>
-      <h2>Our Success</h2>
-      <p>IonX, Inc. is proud to partner with some of the leading companies in the transportation and aerospace industries. Our partners are an essential part of our success, and we are committed to working together to deliver innovative solutions that meet the unique needs of our clients. Contact us today to learn more about our partners and how we can help you succeed.</p>
-    </div>
-  )}
+  const partners = [
+    {
+      title: 'EcoFlight Solutions',
+      url: 'http://ecoflightsolutions.com',
+      description: 'EcoFlight Solutions leads in sustainable aviation technology, providing advanced eco-friendly materials and engineering expertise to enhance the efficiency and environmental footprint of aircraft.'
+    },
+  {
+      title: 'Quantum Batteries',
+      url: 'http://quantumbatteries.com',
+      description: 'Quantum Batteries is a leader in high-density energy storage solutions, specializing in next-generation battery technology for electric vehicles and aerospace applications.'
+  },
+  {
+      title: 'Global Space Ventures',
+      url: 'http://globalspaceventures.com',
+      description: 'Global Space Ventures supports space exploration with innovative propulsion systems and spacecraft components, focusing on sustainable, cost-effective space missions.'
+  },
+  {
+      title: 'AutoInnovate Motors',
+      url: 'http://autoinnovatemotors.com',
+      description: 'AutoInnovate Motors is at the forefront of electric vehicle technology, designing and manufacturing state-of-the-art electric engines that power the future of road transportation.'
+  },
+  {
+      title: 'FuturSynth Materials',
+      url: 'http://futursynthmaterials.com',
+      description: 'FuturSynth Materials specializes in the development and supply of advanced synthetic materials that are critical for building the next generation of electric jet engines and rockets.'
+  }
+]
   const homepage = {title: "IonX, Inc.", content: (
     <div>
       <h2>Empowering the Future of Transportation and Aerospace</h2>
@@ -63,9 +156,9 @@ function App() {
       {page === "home" && < Home homepage = {homepage}/>}
       {page === "companyHistory" && < CompanyHistory history = {history}/>}
       {page === "pastWork" && < PastWork work = {work}/>}
-      {page === "staff" && < Staff staffing = {staffing}/>}
+      {page === "staff" && < Staff employees = {employees}/>}
       {page === "contact" && < Contact contacts = {contacts}/>}
-      {page === "links" && < Links linked = {linked}/>}
+      {page === "links" && < Links partners = {partners}/>}
       
         </>
       )
